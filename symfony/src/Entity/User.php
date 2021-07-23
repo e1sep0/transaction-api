@@ -34,7 +34,7 @@ class User
     private string $email;
 
     /**
-     * @ORM\Column(type="integer", options="{default: 0}")
+     * @ORM\Column(type="integer", options={default: 0})
      * @Assert\GreaterThan(0)
      */
     private int $balance;
@@ -42,7 +42,7 @@ class User
     /**
      * @ORM\OneToMany(targetEntity=BalanceHistory::class, mappedBy="user", orphanRemoval=true)
      */
-    private ArrayCollection $balanceHistories;
+    private $balanceHistories;
 
     public function __construct()
     {

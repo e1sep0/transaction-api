@@ -5,7 +5,7 @@ COPY .docker/php/conf/php.ini /usr/local/etc/php/conf.d/docker-php-config.ini
 RUN apt-get update \
     && apt-get install -y git acl zsh openssl openssh-client wget zip nano librabbitmq-dev libssh-dev \
     && apt-get install -y libpng-dev libonig-dev zlib1g-dev libzip-dev libxml2-dev libicu-dev \
-    && docker-php-ext-install intl pdo pdo_mysql zip gd soap mbstring opcache \
+    && docker-php-ext-install intl pdo pdo_mysql zip gd soap opcache \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug opcache
 

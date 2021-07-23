@@ -10,9 +10,7 @@ return $config->setRules(
     [
         '@PhpCsFixer' => true,
         '@PHP74Migration' => true,
-        '@PHP74Migration:risky' => true,
         '@Symfony' => true,
-        '@Symfony:risky' => true,
     ]
 )
     ->setFinder($finder);
