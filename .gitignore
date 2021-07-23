@@ -1,0 +1,10 @@
+###> IDE ###
+.idea/*
+###< IDE ###
+
+###> Docker ###
+docker-compose.yaml
+/.env
+###< Docker ###
+/.php_cs.cache
+
