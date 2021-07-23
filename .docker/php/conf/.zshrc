@@ -5,8 +5,6 @@ plugins=(
   git
   composer
   symfony2
-  encode64
-  urltools
   ubuntu
 )
 

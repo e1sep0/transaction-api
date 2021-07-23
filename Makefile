@@ -4,7 +4,8 @@ ifneq (,$(wildcard ./.env))
 endif
 
 # Run this command first
-init: configs-setup composer-install db-create db-migrations permissions-fix
+config: configs-setup
+init: composer-install db-create db-migrations permissions-fix
 
 up: docker-up
 down: docker-down
@@ -58,4 +59,5 @@ configs-setup:
 	[ -f ./symfony/.env.local ] && echo "Skip .env.local" || cp ./symfony/.env ./symfony/.env.local
 	[ -f ./.env ] && echo "Skip docker .env" || cp ./.env.dist ./.env
 	[ -f ./symfony/phpunit.xml ] && echo "Skip phpunit.xml" || cp ./symfony/phpunit.xml.dist ./symfony/phpunit.xml
+	echo "Success! Now update your .env & symfony/.env.local files"
 
