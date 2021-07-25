@@ -13,6 +13,7 @@ A project template in the following configuration:
 1. `make config` - will copy `.env.dist` to `.env` and `symfony/.env` to `symfony/.env.local`
 2. `make init` - install composer, create database and execute migrations
 3. `make up` - start project
+4. `make db-fixtures` - load first users
 
 # Useful commands
 1. `make console` - default shell is zsh with preinstalled set of plugins

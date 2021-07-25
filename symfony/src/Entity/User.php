@@ -34,13 +34,13 @@ class User
     private string $email;
 
     /**
-     * @ORM\Column(type="integer", options={default: 0})
+     * @ORM\Column(type="integer", options={"default": 0})
      * @Assert\GreaterThan(0)
      */
     private int $balance;
 
     /**
-     * @ORM\OneToMany(targetEntity=BalanceHistory::class, mappedBy="user", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=BalanceHistory::class, mappedBy="user", orphanRemoval=true, cascade={"persist"})
      */
     private $balanceHistories;
 
@@ -74,6 +74,20 @@ class User
     public function setBalance(int $balance): self
     {
         $this->balance = $balance;
+
+        return $this;
+    }
+
+    public function addBalance(int $amount): self
+    {
+        $this->balance += $amount;
+
+        return $this;
+    }
+
+    public function subBalance(int $amount): self
+    {
+        $this->balance -= $amount;
 
         return $this;
     }

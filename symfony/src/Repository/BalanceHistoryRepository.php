@@ -9,8 +9,8 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method BalanceHistory|null find($id, $lockMode = null, $lockVersion = null)
- * @method BalanceHistory|null findOneBy(array $criteria, array $orderBy = null)
+ * @method null|BalanceHistory find($id, $lockMode = null, $lockVersion = null)
+ * @method null|BalanceHistory findOneBy(array $criteria, array $orderBy = null)
  * @method BalanceHistory[]    findAll()
  * @method BalanceHistory[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */

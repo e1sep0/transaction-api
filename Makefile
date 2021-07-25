@@ -51,8 +51,11 @@ db-create:
 db-migrations:
 	docker-compose -p $(DOCKER_PROJECT_TITLE) run --rm php-fpm sh -c "php /app/bin/console doctrine:migrations:migrate --no-interaction --allow-no-migration"
 
+db-fixtures:
+	docker-compose -p $(DOCKER_PROJECT_TITLE) run --rm php-fpm sh -c "php /app/bin/console doctrine:fixtures:load"
+
 permissions-fix:
-	docker-compose -p $(DOCKER_PROJECT_TITLE) run --rm php-fpm sh -c "chmod -R u+rwX,g+w,go+rX,o-w .; [ -d ./var/log ] && chmod -R 777 ./var/log; [ -d ./var/cache ] && chmod -R 777 ./var/cache; chmod -R o+rX ./public"
+	docker-compose -p $(DOCKER_PROJECT_TITLE) run --rm php-fpm sh -c "chmod -R u+rwX,g+w,go+rwX,o-w .; [ -d ./var/log ] && chmod -R 777 ./var/log; [ -d ./var/cache ] && chmod -R 777 ./var/cache; chmod -R o+rX ./public"
 
 configs-setup:
 	[ -f docker-compose.yaml ] && echo "Skip docker-compose.yaml" || cp docker-compose.yaml.dist docker-compose.yaml

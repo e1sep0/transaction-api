@@ -2,15 +2,18 @@
 
 $finder = (new PhpCsFixer\Finder())
     ->in(__DIR__)
-    ->exclude('var');
+    ->exclude('var')
+;
 
 $config = new PhpCsFixer\Config();
 
 return $config->setRules(
     [
         '@PhpCsFixer' => true,
+        '@PhpCsFixer:risky' => true,
         '@PHP74Migration' => true,
-        '@Symfony' => true,
+        '@PHP74Migration:risky' => true,
     ]
 )
-    ->setFinder($finder);
+    ->setFinder($finder)
+;

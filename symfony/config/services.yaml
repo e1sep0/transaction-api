@@ -20,6 +20,14 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
             - '../src/Tests/'
+    _instanceof:
+        Doctrine\Common\EventSubscriber:
+            tags: [ 'doctrine.event_subscriber' ]
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Service\TransactionService:
+        public: true
+        arguments:
+            - '@monolog.logger.transaction'
